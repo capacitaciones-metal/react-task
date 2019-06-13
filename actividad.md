@@ -54,3 +54,6 @@ Se utilizara el siguiente esquema de componentes:
 - Recibir el evento en "TaskList" y enviar hacia "TaskContainer"
 - Eliminar la tarea del state "tasks" dentro de "TaskContainer"
 
+### 8. Agregarle estilos por css
+
+- Cambiar el color de los botones
