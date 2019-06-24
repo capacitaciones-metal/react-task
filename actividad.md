@@ -29,7 +29,7 @@ Se utilizara el siguiente esquema de componentes:
 
 ### 3. Recepción de evento
 - Agregar un state denominado "tasks" e inicializar como array vacio
-- Recibir evento "newTask" agregando el parametro recibido "task" como un item del state "tasks"
+- Agregar items al array "tasks" en el metodo "handleAddTask" desde el valor recibido en "task"
 - Verificar los states con  Devtools
 
 ### 4. Crear componente "Lista de tareas"
