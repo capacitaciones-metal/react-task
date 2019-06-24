@@ -5,7 +5,6 @@ import TaskNew from './TaskNew'
 export default class TaskContainer extends React.Component {
 
 
-
     handleAddTask(task){
         console.log(task)
     }
