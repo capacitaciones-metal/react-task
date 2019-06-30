@@ -1,4 +1,4 @@
-#COMPONENT COMUNICATION
+# COMPONENT COMUNICATION
 
 Parent / Child direct communication
 
@@ -24,7 +24,7 @@ Here the child component will call a callback provided by the parent with a valu
 
 If you build a feature/page of your app, it's better to have a single parent managing the callbacks/state (also called container or smart component), and all childs to be stateless, only reporting things to the parent. This way you can easily "share" the state of the parent to any child that need it.
 
-###Context
+### Context
 React Context permits to hold state at the root of your component hierarchy, and be able to inject this state easily into very deeply nested components, without the hassle to have to pass down props to every intermediate components.
 
 Until now, context was an experimental feature, but a new API is available in React 16.3.
@@ -60,7 +60,7 @@ Check this blog post for more details.
 
 Before React 16.3, I'd recommend using react-broadcast which offer quite similar API, and use former context API.
 
-###Portals
+### Portals
 Use a portal when you'd like to keep 2 components close together to make them communicate with simple functions, like in normal parent / child, but you don't want these 2 components to have a parent/child relationship in the DOM, because of visual / CSS constraints it implies (like z-index, opacity...).
 
 In this case you can use a "portal". There are different react libraries using portals, usually used for modals, popups, tooltips...
@@ -91,7 +91,7 @@ Could produce the following DOM when rendered inside reactAppContainer:
 ```
 More details here
 
-###Slots
+### Slots
 You define a slot somewhere, and then you fill the slot from another place of your render tree.
 ```
 import { Slot, Fill } from 'react-slot-fill';
@@ -112,14 +112,14 @@ This is a bit similar to portals except the filled content will be rendered in a
 
 Check react-slot-fill library
 
-###Event bus
+### Event bus
 As stated in the React documentation:
 
 For communication between two components that don't have a parent-child relationship, you can set up your own global event system. Subscribe to events in componentDidMount(), unsubscribe in componentWillUnmount(), and call setState() when you receive an event.
 
 There are many things you can use to setup an event bus. You can just create an array of listeners, and on event publish, all listeners would receive the event. Or you can use something like EventEmitter or PostalJs
 
-###Flux
+### Flux
 Flux is basically an event bus, except the event receivers are stores. This is similar to the basic event bus system except the state is managed outside of React
 
 Original Flux implementation looks like an attempt to do Event-sourcing in a hacky way.
@@ -128,14 +128,14 @@ Redux is for me the Flux implementation that is the closest from event-sourcing,
 
 Egghead's Redux video tutorial is really nice and explains how it works internally (it really is simple).
 
-###Cursors
+### Cursors
 Cursors are coming from ClojureScript/Om and widely used in React projects. They permit to manage the state outside of React, and let multiple components have read/write access to the same part of the state, without needing to know anything about the component tree.
 
 Many implementations exists, including ImmutableJS, React-cursors and Omniscient
 
 Edit 2016: it seems that people agree cursors work fine for smaller apps but it does not scale well on complex apps. Om Next does not have cursors anymore (while it's Om that introduced the concept initially)
 
-###Elm architecture
+### Elm architecture
 The Elm architecture is an architecture proposed to be used by the Elm language. Even if Elm is not ReactJS, the Elm architecture can be done in React as well.
 
 Dan Abramov, the author of Redux, did an implementation of the Elm architecture using React.
@@ -148,7 +148,7 @@ While the conceptual model of Elm is very elegant and the architecture permits t
 
 Also, Elm architecture involves more code boilerplate. It's not that verbose or complicated to write but I think the Elm architecture is more suited to statically typed languages.
 
-###FRP
+### FRP
 Libraries like RxJS, BaconJS or Kefir can be used to produce FRP streams to handle communication between components.
 
 You can try for example Rx-React
@@ -157,19 +157,19 @@ I think using these libs is quite similar to using what the ELM language offers 
 
 CycleJS framework does not use ReactJS but uses vdom. It share a lot of similarities with the Elm architecture (but is more easy to use in real life because it allows vdom hooks) and it uses RxJs extensively instead of functions, and can be a good source of inspiration if you want to use FRP with React. CycleJs Egghead videos are nice to understand how it works.
 
-###CSP
+### CSP
 CSP (Communicating Sequential Processes) are currently popular (mostly because of Go/goroutines and core.async/ClojureScript) but you can use them also in javascript with JS-CSP.
 
 James Long has done a video explaining how it can be used with React.
 
-###Sagas
+### Sagas
 A saga is a backend concept that comes from the DDD / EventSourcing / CQRS world, also called "process manager". It is being popularized by the redux-saga project, mostly as a replacement to redux-thunk for handling side-effects (ie API calls etc). Most people currently think it only services for side-effects but it is actually more about decoupling components.
 
 It is more of a compliment to a Flux architecture (or Redux) than a totally new communication system, because the saga emit Flux actions at the end. The idea is that if you have widget1 and widget2, and you want them to be decoupled, you can't fire action targeting widget2 from widget1. So you make widget1 only fire actions that target itself, and the saga is a "background process" that listens for widget1 actions, and may dispatch actions that target widget2. The saga is the coupling point between the 2 widgets but the widgets remain decoupled.
 
 If you are interested take a look at my answer here
 
-##Conclusion
+## Conclusion
 If you want to see an example of the same little app using these different styles, check the branches of this repository.
 
 I don't know what is the best option in the long term but I really like how Flux looks like event-sourcing.
