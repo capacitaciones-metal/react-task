@@ -29,7 +29,7 @@ Se utilizara el siguiente esquema de componentes:
 
 ### 3. Recepción de evento
 - Agregar un state denominado "tasks" e inicializar como array vacio
-- Agregar items al array "tasks" en el metodo "handleAddTask" desde el valor recibido en "task"
+- Agregar items al array "tasks" en el metodo "handleAddTask" desde el valor recibido en "task". Usar concat (React way)
 - Verificar los states con  Devtools
 
 ### 4. Crear componente "Lista de tareas"
@@ -37,7 +37,7 @@ Se utilizara el siguiente esquema de componentes:
 - Crear un componente llamado "TaskList" en el path "src/componentes"
 - Agregar una prop denominada "list" del tipo array
 - Agregar un titulo en tag h4 "Lista de tareas"
-- Agregar una lista mediante <ul> & <li> con un loop (usar map)
+- Agregar una lista mediante <ul> & <li> con un loop. Usar map (React way)
 - Importar y agregar el componente "TaskList" al componente "TaskContainer"
 - Desde "TaskContainer" inyectar la variable del estado interno "tasks" en la prop "list" del componente "TaskList"
 
@@ -53,12 +53,16 @@ Se utilizara el siguiente esquema de componentes:
 
 ### 6. Eliminar tarea
 - Agregar un boton "eliminar" en el componente "TaskListItem"
-- Al presionar el boton "eliminar" solicitar confirmación
-- Al presionar el boton "eliminar" emitir un evento "delete-task" (kebab-case) enviando como parametro el id de la tarea 
-- Recibir el evento en "TaskList" y volver a emitir hacia "TaskContainer" (ver luego tema store)
-- Eliminar la tarea del state "tasks" dentro de "TaskContainer"
+- Al presionar el boton "eliminar" solicitar confirmación (window.confirm). Agregar console.log("confirmado")
+- Crear un simple EventSystem con funcion emit y suscribe
+- Importar eventSystem "TaskContainer" y suscribir al evento "delete-task" con una funcion "handleDeleteTask"
+- Importar eventSystem "TaskListItem" y al confirmar emitir un evento "delete-task" sobre el eventSystem
+- En la funcion "handleDeleteTask" dentro de "TaskContainer" eliminar la tarea del state "tasks" usando filter (React way) 
 
 
-### 8. Agregarle estilos por css
+### 7. Agregarle estilos con material ui
 
-- Cambiar el color de los botones
+- Agregar una card centrada y wrapear el contenido en la misma
+- Mejorar input text
+- Mejorar boton
+- Mejorar lista

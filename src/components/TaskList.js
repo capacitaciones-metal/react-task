@@ -4,10 +4,6 @@ import TaskListItem from './TaskListItem'
 
 export default class TaskList extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         return (
