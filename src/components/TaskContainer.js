@@ -13,7 +13,6 @@ export default class TaskContainer extends React.Component {
     }
 
     handleAddTask(task){
-        console.log(task)
 
         //Por inmutabilidad no usar push (usar concat o spread operator)
         const newTasks = this.state.tasks.concat(task);
