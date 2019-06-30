@@ -35,10 +35,11 @@ Se utilizara el siguiente esquema de componentes:
 ### 4. Crear componente "Lista de tareas"
 
 - Crear un componente llamado "TaskList" en el path "src/componentes"
-- Agregar una prop denominada "tasks" del tipo array
+- Agregar una prop denominada "list" del tipo array
 - Agregar un titulo en tag h4 "Lista de tareas"
+- Agregar una lista mediante <ul> & <li> con un for
 - Importar y agregar el componente "TaskList" al componente "TaskContainer"
-- Desde "TaskContainer" inyectar la variable del estado interno "tasks" en la prop "tasks" del componente "TaskList"
+- Desde "TaskContainer" inyectar la variable del estado interno "tasks" en la prop "list" del componente "TaskList"
 
 ### 5. Crear componente "item de lista de Tarea"
 

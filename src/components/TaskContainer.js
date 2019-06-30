@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskNew from './TaskNew'
+import TaskList from './TaskList'
 import PropTypes from 'prop-types'
 
 export default class TaskContainer extends React.Component {
@@ -25,6 +26,8 @@ export default class TaskContainer extends React.Component {
             <div>
                 <h3>Gestion de tareas</h3>
                 <TaskNew addTask={this.handleAddTask} />
+
+                <TaskList list={this.state.tasks} />
             </div>
         );
     }
