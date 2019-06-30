@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import TaskListItem from './TaskListItem'
 
 export default class TaskList extends React.Component {
 
@@ -15,7 +15,7 @@ export default class TaskList extends React.Component {
                 <h4>Lista de Tareas</h4>
                 <ul>
                     {this.props.list.map((value, index) => {
-                        return <li key={index}>{value}</li>
+                        return <TaskListItem key={index} subject={value} id={index} />
                     })}
                 </ul>
             </div>

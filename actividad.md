@@ -37,24 +37,21 @@ Se utilizara el siguiente esquema de componentes:
 - Crear un componente llamado "TaskList" en el path "src/componentes"
 - Agregar una prop denominada "list" del tipo array
 - Agregar un titulo en tag h4 "Lista de tareas"
-- Agregar una lista mediante <ul> & <li> con un for
+- Agregar una lista mediante <ul> & <li> con un loop (usar map)
 - Importar y agregar el componente "TaskList" al componente "TaskContainer"
 - Desde "TaskContainer" inyectar la variable del estado interno "tasks" en la prop "list" del componente "TaskList"
 
 ### 5. Crear componente "item de lista de Tarea"
 
 - Crear un componente llamado "TaskListItem" en el path "src/componentes"
-- Agregar una prop "task" del tipo String
+- Agregar una prop "subject" del tipo String
 - Agregar una prop "id" del tipo Number
-- Imprimir el valor de "task" dentro del tag "<li>"
-
-### 6. Mostrar lista de items 
-- Importar y agregar el componente "TaskListItem" poniendolo dentro del for inyectando la prop "id" y "task"
-- Agregar la etiqueta <ul> dentro de "TaskList"
-- Agregar un v-for en la etiqueta <ul> e iterar la prop "tasks"
+- Imprimir el valor de "subject" dentro del tag "<li>"
+- Importar y agregar el componente "TaskListItem" remplazando el li del loop (map) inyectando la prop "id" y "subject"
 
 
-### 7. Eliminar tarea
+
+### 6. Eliminar tarea
 - Agregar un boton "eliminar" en el componente "TaskListItem"
 - Al presionar el boton "eliminar" solicitar confirmación
 - Al presionar el boton "eliminar" emitir un evento "delete-task" (kebab-case) enviando como parametro el id de la tarea 
